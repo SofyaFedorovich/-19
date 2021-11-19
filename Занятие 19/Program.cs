@@ -13,8 +13,12 @@ namespace Занятие_19
         {
            List<Comp>comps = new List<Comp>()
             {
-            new Comp() { Code = "001", Name = "ASUS", Type="i7", Frequency = 3200, RAM=8,VolHdd=256,VolMemGpu=2,Cost=50000, Number=120},
-           
+            new Comp() { Code = "001", Name = "ASUS", Type="i7", Frequency = 3500, RAM=8,HDD=256,VideoCard=2,Price=245,Quantity=8},
+            new Comp() { Code = "002", Name = "ACER", Type="Pentium", Frequency = 3200, RAM=16,HDD=512,VideoCard=2,Price=300,Quantity=10},
+            new Comp() { Code = "003", Name = "APPLE", Type="AM1", Frequency = 3000, RAM=32,HDD=1024,VideoCard=2,Price=450,Quantity=12},
+            new Comp() { Code = "004", Name = "DELL", Type="i5", Frequency = 2400, RAM=8,HDD=256,VideoCard=2,Price=390,Quantity=11},
+            new Comp() { Code = "005", Name = "LENOVO", Type="Celeron", Frequency = 4200, RAM=16,HDD=512,VideoCard=2,Price=180,Quantity=9},
+            new Comp() { Code = "006", Name = "HP", Type="Xeon", Frequency = 3200, RAM=32,HDD=1024,VideoCard=2,Price=290,Quantity=7},
             };
         }
         class Comp
