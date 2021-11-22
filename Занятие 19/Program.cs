@@ -29,7 +29,7 @@ namespace Занятие_19
             foreach(Comp d in type)
                 if(d!=null)
                 {
-                    Console.WriteLine($"Компьютер с кодом {d.Code}, марки {d.Type} с процессором {d.Name}ГБ имеется, {d.Quantity} шт. в наличии");
+                    Console.WriteLine($"Компьютер с кодом {d.Code}, тип процессора {d.Type} марки {d.Name} имеется, {d.Quantity} шт. в наличии");
                 }
             else
                 {
@@ -46,7 +46,7 @@ namespace Занятие_19
             foreach (Comp d in ram)
                 if (d != null)
                 {
-                    Console.WriteLine($"Компьютер с кодом {d.Code}, марки {d.Type} с процессором {d.RAM} ГБ, {d.Quantity} шт. в наличии");
+                    Console.WriteLine($"Компьютер с кодом {d.Code}, тип процессора {d.Type},  ОЗУ: {d.RAM} ГБ, {d.Quantity} шт. в наличии");
                 }
                 else
                 {
@@ -62,10 +62,8 @@ namespace Занятие_19
                 Console.WriteLine($"{d.Name}, {d.Price}");
             Console.WriteLine();
 
-
-
             Console.WriteLine();
-            Console.WriteLine("Сортировка по типу процессора: ");
+            Console.WriteLine("Список сгруппированный по типу процессора: ");
             List<Comp> typeCPU = comps
                 .OrderBy(d => d.Type)
                 .ToList();
