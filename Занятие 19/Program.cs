@@ -29,7 +29,7 @@ namespace Занятие_19
             foreach(Comp d in type)
                 if(d!=null)
                 {
-                    Console.WriteLine($"Компьютер с кодом {d.Code}, с процессором {d.Name} имеется, {d.Quantity} шт. в наличии");
+                    Console.WriteLine($"Компьютер с кодом {d.Code}, марки {d.Type} с процессором {d.Name}ГБ имеется, {d.Quantity} шт. в наличии");
                 }
             else
                 {
@@ -38,26 +38,81 @@ namespace Занятие_19
             Console.WriteLine();
 
             Console.Write("Введите объем ОЗУ:  ");
-            int 
-                  
+            int printRAM = Convert.ToInt32(Console.ReadLine());
+            List<Comp> ram = comps
+                .Where(d => d.RAM >= printRAM)
+                .DefaultIfEmpty()
+                .ToList();
+            foreach (Comp d in ram)
+                if (d != null)
+                {
+                    Console.WriteLine($"Компьютер с кодом {d.Code}, марки {d.Type} с процессором {d.RAM} ГБ, {d.Quantity} шт. в наличии");
+                }
+                else
+                {
+                    Console.WriteLine("В наличии компьютеров с таким параметром нет");
+                }
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Cортировка по цене, в у.е.: ");
+            List<Comp> compPrice = comps
+                .OrderBy(d => d.Price)
+                .ToList();
+            foreach (Comp d in compPrice)
+                Console.WriteLine($"{d.Name}, {d.Price}");
+            Console.WriteLine();
+
+
+
+            Console.WriteLine();
+            Console.WriteLine("Сортировка по типу процессора: ");
+            List<Comp> typeCPU = comps
+                .OrderBy(d => d.Type)
+                .ToList();
+            foreach (Comp d in type)
+                Console.WriteLine($"{d.Name}, {d.Type}");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Самый дорогой компьютер:");
+            Comp maxPrice = comps
+                .OrderByDescending(d => d.Price)
+                .First();
+            Console.WriteLine($"{maxPrice.Name} - {maxPrice.Price} у.е.");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Самый бюджетный компьютер:");
+            Comp minPrice = comps
+                .OrderBy(d => d.Price)
+                .First();
+            Console.WriteLine($"{minPrice.Name} - {minPrice.Price} у.е.");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Есть ли хотя бы один компьютер в количестве не менее 30 штук: ");
+            var computers30 = comps
+                .Any((d => d.Quantity >= 30));
+            if (computers30 == true)
+            {
+                Console.WriteLine("Да");
+            }
+            else
+            {
+                Console.WriteLine("Нет");
+            }
+            Console.ReadKey();
 
         }
         class Comp //класс компьютер
         {
-            public string Code { get; set; }
-            public string Name { get; set; }
-            public string Type { get; set; }
-            public int Frequency { get; set; }
-            public int RAM { get; set; }
-            public int HDD { get; set; }
-            public int VideoCard { get; set; }
-            public int Price { get; set; }
-            public int Quantity { get; set; }
-
-
-
-        }
-                
+            public string Code { get; set; } //код
+            public string Name { get; set; } //название марки
+            public string Type { get; set; } //тип процессора
+            public int Frequency { get; set; } //частота работы процессора
+            public int RAM { get; set; }  //объем ОЗУ
+            public int HDD { get; set; } // объем жесткого диска
+            public int VideoCard { get; set; } // объем памяти видеокарты
+            public int Price { get; set; } //стоимость компьютера в у.е.
+            public int Quantity { get; set; }  // наличие, шт. 
+        }       
         
     }
 }
